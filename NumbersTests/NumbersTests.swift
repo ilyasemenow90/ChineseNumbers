@@ -20,15 +20,26 @@ class NumbersTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let testData: [Number] = [
+            createNumber(with: "test"),
+            createNumber(with: "test1")
+        ]
+        let storage = ContentInMemoryStorage()
+        
+        storage.store(data: testData)
+        
+        XCTAssert(storage.getAllData().count == testData.count, "Storage failed with store data")
     }
 
     func testPerformanceExample() throws {
-        // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
         }
+    }
+    
+    func createNumber(with name: String) -> Number {
+        guard let url = URL(string: "http://inu.tapptic.com/test/image.php?text=\(name)") else { fatalError() }
+        
+        return Number(name: name, image: url)
     }
 
 }
