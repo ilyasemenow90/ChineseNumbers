@@ -7,3 +7,30 @@
 //
 
 import Foundation
+import UIKit
+
+final class ExploreWireframe {
+    private let context: UISplitViewController
+    
+    init(context: UISplitViewController) {
+        self.context = context
+        
+        context.delegate = self
+    }
+}
+
+extension ExploreWireframe: ExploreWireframeProtocol {
+    func showDetails() {
+        
+    }
+}
+
+extension ExploreWireframe: UISplitViewControllerDelegate {
+    func splitViewController(
+        _ splitViewController: UISplitViewController,
+        collapseSecondary secondaryViewController: UIViewController,
+        onto primaryViewController: UIViewController
+    ) -> Bool {
+        true
+    }
+}

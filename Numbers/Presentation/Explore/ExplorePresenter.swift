@@ -9,17 +9,51 @@
 import Foundation
 
 final class ExplorePresenter {
-    init() {
+    private let wireframe: ExploreWireframeProtocol
+    private let content: Content
+    
+    private var data: [Number] = []
+    
+    weak var masterUserInterface: ExploreMasterUserInterface?
+    weak var detailsUserInterface: ExploreDetailsUserInterface?
+    
+    init(
+        wireframe: ExploreWireframeProtocol,
+        content: Content
+    ) {
+        self.wireframe = wireframe
+        self.content = content
+        
+        content.subscribe(self)
+    }
+}
+
+extension ExplorePresenter: ExploreMasterEventsHandler {
+    func didLoadView() {
+        data = content.allData()
+        updateMasterView()
+        
+        content.updateData()
+    }
+    
+    func didSelectItem() {
         
     }
 }
 
-extension ExplorePresenter: ExploreEventsHandler {
-    func didLoadView() {
-        
+extension ExplorePresenter: ExploreDetailsEventsHandler {
+    
+}
+
+extension ExplorePresenter: ContentDelegate {
+    func contentDidUpdate() {
+        data = content.allData()
+        updateMasterView()
     }
 }
 
 private extension ExplorePresenter {
-    
+    func updateMasterView() {
+        masterUserInterface?.update(with: data)
+    }
 }

@@ -8,14 +8,23 @@
 
 import Foundation
 
-protocol ExploreUserInterface {
-    func update()
-}
-
-protocol ExploreEventsHandler {
-    func didLoadView()
-}
-
-protocol ExploreWireframe {
+protocol ExploreWireframeProtocol {
     func showDetails()
+}
+
+protocol ExploreMasterEventsHandler {
+    func didLoadView()
+    func didSelectItem()
+}
+
+protocol ExploreDetailsEventsHandler {
+    
+}
+
+protocol ExploreMasterUserInterface: AnyObject {
+    func update(with: [Number])
+}
+
+protocol ExploreDetailsUserInterface: AnyObject {
+    
 }
