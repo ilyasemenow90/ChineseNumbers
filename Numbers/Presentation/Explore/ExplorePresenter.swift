@@ -12,8 +12,8 @@ final class ExplorePresenter {
     private let wireframe: ExploreWireframeProtocol
     private let content: Content
     
-    private var data: [Number] = []
-    private var activeNumber: Number?
+    private var data: [NumberModel] = []
+    private var activeNumber: NumberModel?
     
     weak var masterUserInterface: ExploreMasterUserInterface?
     weak var detailsUserInterface: ExploreDetailsUserInterface?
@@ -31,13 +31,14 @@ final class ExplorePresenter {
 
 extension ExplorePresenter: ExploreMasterEventsHandler {
     func didLoadView() {
-        data = content.allData()
+        fillDataFromContent()
         updateMasterView()
+        updateDetailView()
         
         content.updateData()
     }
     
-    func didSelect(number: Number) {
+    func didSelect(number: NumberModel) {
         updateActive(number)
         updateInterfaceForActiveNumber()
         wireframe.showDetails()
@@ -52,6 +53,8 @@ extension ExplorePresenter: ExploreDetailsEventsHandler {
         else { return }
         
         activeNumber = nextActive
+        masterUserInterface?.updateSelected(number: nextActive)
+        detailsUserInterface?.update(with: nextActive)
     }
     
     func selectPreviousNumber() {
@@ -61,13 +64,16 @@ extension ExplorePresenter: ExploreDetailsEventsHandler {
         else { return }
         
         activeNumber = nextActive
+        masterUserInterface?.updateSelected(number: nextActive)
+        detailsUserInterface?.update(with: nextActive)
     }
 }
 
 extension ExplorePresenter: ContentDelegate {
     func contentDidUpdate() {
-        data = content.allData()
+        fillDataFromContent()
         updateMasterView()
+        updateDetailView()
     }
     
     func contentUpdateFailed() {
@@ -78,11 +84,19 @@ extension ExplorePresenter: ContentDelegate {
 }
 
 private extension ExplorePresenter {
+    func fillDataFromContent() {
+        data = content.allData().enumerated().map { NumberModel(number: $0.element, position: $0.offset) }
+    }
+    
     func updateMasterView() {
         masterUserInterface?.update(with: data)
     }
     
-    func updateActive(_ number: Number) {
+    func updateDetailView() {
+        detailsUserInterface?.updatePages(count: data.count)
+    }
+    
+    func updateActive(_ number: NumberModel) {
         activeNumber = number
     }
     

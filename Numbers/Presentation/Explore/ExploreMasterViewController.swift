@@ -16,8 +16,8 @@ final class ExploreMasterViewController: UIViewController {
     @IBOutlet private(set) var missingDataView: UIView!
     @IBOutlet private(set) var missingDataLabel: UILabel!
     
-    private var numbers: [Number] = []
-    private var selectedNumber: Number?
+    private var numbers: [NumberModel] = []
+    private var selectedNumber: NumberModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ final class ExploreMasterViewController: UIViewController {
 }
 
 extension ExploreMasterViewController: ExploreMasterUserInterface {
-    func update(with data: [Number]) {
+    func update(with data: [NumberModel]) {
         numbers = data
         
         DispatchQueue.main.async {
@@ -40,8 +40,11 @@ extension ExploreMasterViewController: ExploreMasterUserInterface {
         }
     }
     
-    func updateSelected(number: Number) {
+    func updateSelected(number: NumberModel) {
         selectedNumber = number
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     func showUpdateDataFailed() {
@@ -105,13 +108,13 @@ extension ExploreMasterViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NumbersCell", for: indexPath) as? NumberCell,
-            let number = numbers[safe: indexPath.item]
+            let model = numbers[safe: indexPath.item]
         else { fatalError() }
         
-        cell.update(title: number.name)
-        cell.update(url: number.image)
+        cell.update(title: model.number.name)
+        cell.update(url: model.number.image)
         
-        if number == selectedNumber {
+        if model == selectedNumber {
             cell.update(state: .selected)
         } else {
             cell.update(state: .none)

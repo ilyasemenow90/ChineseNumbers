@@ -14,19 +14,26 @@ protocol ExploreWireframeProtocol {
 
 protocol ExploreMasterEventsHandler {
     func didLoadView()
-    func didSelect(number: Number)
+    func didSelect(number: NumberModel)
 }
 
 protocol ExploreDetailsEventsHandler {
-    
+    func selectNextNumber()
+    func selectPreviousNumber()
 }
 
 protocol ExploreMasterUserInterface: AnyObject {
-    func update(with: [Number])
-    func updateSelected(number: Number)
+    func update(with: [NumberModel])
+    func updateSelected(number: NumberModel)
     func showUpdateDataFailed()
 }
 
 protocol ExploreDetailsUserInterface: AnyObject {
-    func update(with: Number)
+    func update(with: NumberModel)
+    func updatePages(count: Int)
+}
+
+struct NumberModel: Equatable {
+    let number: Number
+    let position: Int
 }

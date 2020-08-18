@@ -23,6 +23,13 @@ final class NumberCell: UICollectionViewCell {
         UIDevice.current.userInterfaceIdiom == .pad
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        imageView.image = nil
+        titleLabel.text = nil
+    }
+    
     func update(title: String) {
         titleLabel.text = title
     }

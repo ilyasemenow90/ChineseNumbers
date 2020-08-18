@@ -28,25 +28,57 @@
                                     <constraint firstAttribute="width" secondItem="gMm-ow-3IG" secondAttribute="height" multiplier="1:1" priority="750" id="Akr-mU-vOp"/>
                                 </constraints>
                             </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="MmM-DD-5Nq">
+                                <rect key="frame" x="187.5" y="801" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left right on the screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgR-y7-SAr">
+                                <rect key="frame" x="106.5" y="838" width="201.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="gMm-ow-3IG" firstAttribute="centerX" secondItem="o8X-od-bRf" secondAttribute="centerX" id="Dih-N3-QpS"/>
+                            <constraint firstItem="MmM-DD-5Nq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CI0-ry-oHp" secondAttribute="bottom" constant="16" id="G26-m6-Jdp"/>
+                            <constraint firstItem="DgR-y7-SAr" firstAttribute="centerX" secondItem="o8X-od-bRf" secondAttribute="centerX" id="H0g-Iw-fj8"/>
                             <constraint firstItem="CI0-ry-oHp" firstAttribute="top" secondItem="gMm-ow-3IG" secondAttribute="bottom" constant="24" id="P2O-ra-ATy"/>
                             <constraint firstItem="gMm-ow-3IG" firstAttribute="leading" secondItem="b17-bb-n3d" secondAttribute="leading" constant="64" id="Z0w-ok-z9W"/>
                             <constraint firstItem="gMm-ow-3IG" firstAttribute="centerY" secondItem="o8X-od-bRf" secondAttribute="centerY" id="ZLe-oe-J9X"/>
                             <constraint firstItem="CI0-ry-oHp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b17-bb-n3d" secondAttribute="leading" constant="16" id="hl7-al-ax9"/>
-                            <constraint firstItem="b17-bb-n3d" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="CI0-ry-oHp" secondAttribute="bottom" constant="16" id="j8Z-Nn-qDw"/>
                             <constraint firstItem="CI0-ry-oHp" firstAttribute="centerX" secondItem="o8X-od-bRf" secondAttribute="centerX" id="k3F-a1-HbE"/>
+                            <constraint firstItem="MmM-DD-5Nq" firstAttribute="centerX" secondItem="o8X-od-bRf" secondAttribute="centerX" id="mPs-p3-lZM"/>
+                            <constraint firstItem="DgR-y7-SAr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b17-bb-n3d" secondAttribute="leading" constant="16" id="otq-Ga-nfa"/>
+                            <constraint firstItem="DgR-y7-SAr" firstAttribute="top" secondItem="MmM-DD-5Nq" secondAttribute="bottom" id="tWR-db-o1i"/>
+                            <constraint firstItem="b17-bb-n3d" firstAttribute="bottom" secondItem="MmM-DD-5Nq" secondAttribute="bottom" constant="24" id="zcY-5U-P8d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b17-bb-n3d"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="i6x-19-BxN" appends="YES" id="Az9-Xu-Niz"/>
+                            <outletCollection property="gestureRecognizers" destination="YTq-py-hsv" appends="YES" id="TXK-5L-U4M"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="gMm-ow-3IG" id="f7K-A2-baf"/>
+                        <outlet property="pageContorol" destination="MmM-DD-5Nq" id="Yyp-5s-AtX"/>
                         <outlet property="titleLabel" destination="CI0-ry-oHp" id="kaX-t9-jgo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ixb-lO-5bF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="i6x-19-BxN">
+                    <connections>
+                        <action selector="swipeLeft:" destination="0iM-yP-Bir" id="uag-YK-DFW"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="YTq-py-hsv">
+                    <connections>
+                        <action selector="swipeRight:" destination="0iM-yP-Bir" id="Qhc-gG-OsU"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-10.144927536231885" y="268.52678571428572"/>
         </scene>

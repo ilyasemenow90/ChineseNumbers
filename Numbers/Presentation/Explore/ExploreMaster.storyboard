@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JZi-Hz-s9p">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="kgQ-oR-Pm2">
                                     <size key="itemSize" width="400" height="128"/>
@@ -96,7 +96,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="oSP-wB-DK4" firstAttribute="trailing" secondItem="JZi-Hz-s9p" secondAttribute="trailing" id="2yo-HD-e2b"/>
-                            <constraint firstItem="oSP-wB-DK4" firstAttribute="bottom" secondItem="JZi-Hz-s9p" secondAttribute="bottom" id="AOT-Nh-uaU"/>
+                            <constraint firstAttribute="bottom" secondItem="JZi-Hz-s9p" secondAttribute="bottom" id="AOT-Nh-uaU"/>
                             <constraint firstItem="zG1-az-SS0" firstAttribute="centerY" secondItem="LRU-ap-OxX" secondAttribute="centerY" id="Dkq-la-CqG"/>
                             <constraint firstItem="oSP-wB-DK4" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zG1-az-SS0" secondAttribute="bottom" constant="16" id="LPm-K9-itq"/>
                             <constraint firstItem="zG1-az-SS0" firstAttribute="leading" secondItem="oSP-wB-DK4" secondAttribute="leading" constant="16" id="aOM-TM-Nly"/>
