@@ -43,8 +43,11 @@ extension NumbersAppFactory: ApplicationFactory {
 
         let splitViewController = UISplitViewController()
         splitViewController.viewControllers = [masterNavigationController, detailNavigationController]
+        splitViewController.preferredPrimaryColumnWidthFraction = 0.5
+        splitViewController.maximumPrimaryColumnWidth = 2000
+        splitViewController.preferredDisplayMode = .allVisible
         
-        let wireframe = ExploreWireframe(context: splitViewController, factory: self)
+        let wireframe = ExploreWireframe(context: splitViewController, details: detailNavigationController, factory: self)
         let presenter = ExplorePresenter(
             wireframe: wireframe,
             content: content.resolve(Content.self)  

@@ -15,10 +15,12 @@ final class ExploreMasterViewController: UIViewController {
     @IBOutlet private(set) var collectionView: UICollectionView!
     
     private var numbers: [Number] = []
+    private var selectedNumber: Number?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.delaysContentTouches = false
         eventsHandler?.didLoadView()
     }
 }
@@ -30,11 +32,15 @@ extension ExploreMasterViewController: ExploreMasterUserInterface {
             self.collectionView.reloadData()
         }
     }
+    
+    func updateSelected(number: Number) {
+        selectedNumber = number
+    }
 }
 
 extension ExploreMasterViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let number = numbers[safe: indexPath.count] else { return }
+        guard let number = numbers[safe: indexPath.item] else { return }
         
         eventsHandler?.didSelect(number: number)
     }

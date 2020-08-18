@@ -12,6 +12,16 @@ import UIKit
 final class NumberCell: UICollectionViewCell {
     @IBOutlet private(set) var titleLabel: UILabel!
     
+    override var isHighlighted: Bool {
+        didSet {
+            if self.isHighlighted {
+                backgroundColor = ColorPalette.mainBackgroundHighlighted
+            } else {
+                backgroundColor = ColorPalette.mainBackground
+            }
+        }
+    }
+    
     func update(title: String) {
         titleLabel.text = title
     }

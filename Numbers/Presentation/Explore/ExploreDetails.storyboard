@@ -15,13 +15,40 @@
                     <view key="view" contentMode="scaleToFill" id="o8X-od-bRf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CI0-ry-oHp">
+                                <rect key="frame" x="178.5" y="615" width="57" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gMm-ow-3IG">
+                                <rect key="frame" x="64" y="305" width="286" height="286"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gMm-ow-3IG" secondAttribute="height" multiplier="1:1" priority="750" id="Akr-mU-vOp"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gMm-ow-3IG" firstAttribute="centerX" secondItem="o8X-od-bRf" secondAttribute="centerX" id="Dih-N3-QpS"/>
+                            <constraint firstItem="CI0-ry-oHp" firstAttribute="top" secondItem="gMm-ow-3IG" secondAttribute="bottom" constant="24" id="P2O-ra-ATy"/>
+                            <constraint firstItem="gMm-ow-3IG" firstAttribute="leading" secondItem="b17-bb-n3d" secondAttribute="leading" constant="64" id="Z0w-ok-z9W"/>
+                            <constraint firstItem="gMm-ow-3IG" firstAttribute="centerY" secondItem="o8X-od-bRf" secondAttribute="centerY" id="ZLe-oe-J9X"/>
+                            <constraint firstItem="CI0-ry-oHp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b17-bb-n3d" secondAttribute="leading" constant="16" id="hl7-al-ax9"/>
+                            <constraint firstItem="b17-bb-n3d" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="CI0-ry-oHp" secondAttribute="bottom" constant="16" id="j8Z-Nn-qDw"/>
+                            <constraint firstItem="CI0-ry-oHp" firstAttribute="centerX" secondItem="o8X-od-bRf" secondAttribute="centerX" id="k3F-a1-HbE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="b17-bb-n3d"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="gMm-ow-3IG" id="f7K-A2-baf"/>
+                        <outlet property="titleLabel" destination="CI0-ry-oHp" id="kaX-t9-jgo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ixb-lO-5bF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10" y="269"/>
+            <point key="canvasLocation" x="-10.144927536231885" y="268.52678571428572"/>
         </scene>
     </scenes>
 </document>
