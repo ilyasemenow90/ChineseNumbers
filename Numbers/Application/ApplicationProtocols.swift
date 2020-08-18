@@ -19,8 +19,6 @@ protocol ApplicationFactory {
 }
 
 protocol ModuleFactory {
-    func explore() -> UIViewController
-    func details() -> UIViewController
 }
 
 protocol ApplicationWireframe {

@@ -10,11 +10,11 @@ import Foundation
 
 final class ContentNetworkUpdater {
     private let httpService: HttpService
-    private let dataParser: NubmersParser
+    private let dataParser: NumbersParser
     
     init(
         httpService: HttpService,
-        dataParser: NubmersParser
+        dataParser: NumbersParser
     ) {
         self.httpService = httpService
         self.dataParser = dataParser

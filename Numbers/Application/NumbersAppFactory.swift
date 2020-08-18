@@ -28,13 +28,7 @@ class NumbersAppFactory {
 }
 
 extension NumbersAppFactory: ModuleFactory {
-    func explore() -> UIViewController {
-        UIViewController()
-    }
-    
-    func details() -> UIViewController {
-        UIViewController()
-    }
+
 }
 
 extension NumbersAppFactory: ApplicationFactory {
@@ -50,10 +44,10 @@ extension NumbersAppFactory: ApplicationFactory {
         let splitViewController = UISplitViewController()
         splitViewController.viewControllers = [masterNavigationController, detailNavigationController]
         
-        let wireframe = ExploreWireframe(context: splitViewController)
+        let wireframe = ExploreWireframe(context: splitViewController, factory: self)
         let presenter = ExplorePresenter(
             wireframe: wireframe,
-            content: content.resolve(Content.self)
+            content: content.resolve(Content.self)  
         )
         
         presenter.masterUserInterface = masterViewController

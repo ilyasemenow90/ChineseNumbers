@@ -13,7 +13,7 @@ class StorageComponents: Components {
         ContentInMemoryStorage()
     }
     
-    func resolve(_: NubmersParser.Protocol) -> NubmersParser {
+    func resolve(_: NumbersParser.Protocol) -> NumbersParser {
         ContentJSONParser()
     }
 }

@@ -17,32 +17,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JZi-Hz-s9p">
-                                <rect key="frame" x="9" y="50" width="311" height="132"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JZi-Hz-s9p">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kgQ-oR-Pm2">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="kgQ-oR-Pm2">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NumbersCell" id="jlk-9a-FFB">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NumbersCell" id="jlk-9a-FFB" customClass="NumberCell" customModule="Numbers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YMm-L7-xI7">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akA-SN-JrT">
+                                                    <rect key="frame" x="16" y="49.5" width="96" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="akA-SN-JrT" secondAttribute="trailing" constant="16" id="HwW-bS-3oO"/>
+                                                <constraint firstItem="akA-SN-JrT" firstAttribute="centerY" secondItem="YMm-L7-xI7" secondAttribute="centerY" id="NVs-a4-UZi"/>
+                                                <constraint firstItem="akA-SN-JrT" firstAttribute="leading" secondItem="YMm-L7-xI7" secondAttribute="leading" constant="16" id="geV-eJ-htL"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="akA-SN-JrT" id="icC-5V-8wa"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="mh6-cG-H8e" id="YuA-Wq-lDQ"/>
+                                    <outlet property="delegate" destination="mh6-cG-H8e" id="lZy-TT-5bP"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="oSP-wB-DK4" firstAttribute="trailing" secondItem="JZi-Hz-s9p" secondAttribute="trailing" id="2yo-HD-e2b"/>
+                            <constraint firstItem="oSP-wB-DK4" firstAttribute="bottom" secondItem="JZi-Hz-s9p" secondAttribute="bottom" id="AOT-Nh-uaU"/>
+                            <constraint firstItem="JZi-Hz-s9p" firstAttribute="leading" secondItem="oSP-wB-DK4" secondAttribute="leading" id="gVj-1n-T6c"/>
+                            <constraint firstItem="JZi-Hz-s9p" firstAttribute="top" secondItem="oSP-wB-DK4" secondAttribute="top" id="i8k-x6-luM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oSP-wB-DK4"/>
                     </view>
                     <navigationItem key="navigationItem" id="LDe-VS-q2a"/>
+                    <connections>
+                        <outlet property="collectionView" destination="JZi-Hz-s9p" id="KCD-Fd-1jc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="new-ug-zWn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

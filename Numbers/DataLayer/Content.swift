@@ -26,7 +26,7 @@ protocol ContentUpdater {
     func updateData(_: @escaping (Result<[Number], Error>) -> ())
 }
 
-protocol NubmersParser {
+protocol NumbersParser {
     func parseNumbers(from: Data) -> [Number]
 }
 

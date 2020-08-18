@@ -36,8 +36,9 @@ extension ExplorePresenter: ExploreMasterEventsHandler {
         content.updateData()
     }
     
-    func didSelectItem() {
-        
+    func didSelect(number: Number) {
+        let context = DetailsContext(number: number)
+        wireframe.showDetails(with: context)
     }
 }
 

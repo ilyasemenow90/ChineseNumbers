@@ -11,17 +11,19 @@ import UIKit
 
 final class ExploreWireframe {
     private let context: UISplitViewController
+    private let factory: ModuleFactory
     
-    init(context: UISplitViewController) {
+    init(context: UISplitViewController, factory: ModuleFactory) {
         self.context = context
+        self.factory = factory
         
         context.delegate = self
     }
 }
 
 extension ExploreWireframe: ExploreWireframeProtocol {
-    func showDetails() {
-        
+    func showDetails(with context: DetailsContext) {
+
     }
 }
 

@@ -12,7 +12,7 @@ class ContentJSONParser {
     private let jsonDecoder = JSONDecoder()
 }
 
-extension ContentJSONParser: NubmersParser {
+extension ContentJSONParser: NumbersParser {
     func parseNumbers(from data: Data) -> [Number] {
         let numbers = try? jsonDecoder.decode([Number].self, from: data)
         

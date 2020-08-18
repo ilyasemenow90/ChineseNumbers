@@ -28,6 +28,6 @@ class ContentComponents: Components {
     func resolve(_: ContentUpdater.Protocol) -> ContentUpdater {
         ContentNetworkUpdater(
             httpService: HttpService(),
-            dataParser: storage.resolve(NubmersParser.self))
+            dataParser: storage.resolve(NumbersParser.self))
     }
 }

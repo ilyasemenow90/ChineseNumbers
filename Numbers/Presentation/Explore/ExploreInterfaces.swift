@@ -9,12 +9,12 @@
 import Foundation
 
 protocol ExploreWireframeProtocol {
-    func showDetails()
+    func showDetails(with: DetailsContext)
 }
 
 protocol ExploreMasterEventsHandler {
     func didLoadView()
-    func didSelectItem()
+    func didSelect(number: Number)
 }
 
 protocol ExploreDetailsEventsHandler {
@@ -27,4 +27,8 @@ protocol ExploreMasterUserInterface: AnyObject {
 
 protocol ExploreDetailsUserInterface: AnyObject {
     
+}
+
+struct DetailsContext {
+    let number: Number
 }

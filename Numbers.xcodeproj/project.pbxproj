@@ -19,6 +19,8 @@
 		E93EF7FF24EBCDFF001576E8 /* ContentNetworkUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93EF7FE24EBCDFF001576E8 /* ContentNetworkUpdater.swift */; };
 		E93EF80124EBD3B5001576E8 /* ExploreMaster.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93EF80024EBD3B5001576E8 /* ExploreMaster.storyboard */; };
 		E93EF80324EBD3DF001576E8 /* ExploreDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93EF80224EBD3DF001576E8 /* ExploreDetails.storyboard */; };
+		E93EF80524EBD891001576E8 /* Foundation+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93EF80424EBD891001576E8 /* Foundation+Utils.swift */; };
+		E93EF80724EBDD9C001576E8 /* NumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93EF80624EBDD9C001576E8 /* NumberCell.swift */; };
 		E9A68D2124EB1643008403BA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A68D2024EB1643008403BA /* SplashViewController.swift */; };
 		E9A68D2624EB1645008403BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A68D2524EB1645008403BA /* Assets.xcassets */; };
 		E9A68D3424EB1645008403BA /* NumbersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A68D3324EB1645008403BA /* NumbersTests.swift */; };
@@ -68,6 +70,8 @@
 		E93EF7FE24EBCDFF001576E8 /* ContentNetworkUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentNetworkUpdater.swift; sourceTree = "<group>"; };
 		E93EF80024EBD3B5001576E8 /* ExploreMaster.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExploreMaster.storyboard; sourceTree = "<group>"; };
 		E93EF80224EBD3DF001576E8 /* ExploreDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExploreDetails.storyboard; sourceTree = "<group>"; };
+		E93EF80424EBD891001576E8 /* Foundation+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Utils.swift"; sourceTree = "<group>"; };
+		E93EF80624EBDD9C001576E8 /* NumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCell.swift; sourceTree = "<group>"; };
 		E9A68D1924EB1643008403BA /* Numbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Numbers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A68D2024EB1643008403BA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = ../SplashViewController.swift; sourceTree = "<group>"; };
 		E9A68D2524EB1645008403BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 				E9A68D6224EB1D3B008403BA /* ExploreWireframe.swift */,
 				E93EF80224EBD3DF001576E8 /* ExploreDetails.storyboard */,
 				E93EF80024EBD3B5001576E8 /* ExploreMaster.storyboard */,
+				E93EF80624EBDD9C001576E8 /* NumberCell.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 			children = (
 				E9A68D6F24EB353E008403BA /* Notifier.swift */,
 				E9A68D7524EB3B6A008403BA /* Handlers.swift */,
+				E93EF80424EBD891001576E8 /* Foundation+Utils.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 				E9A68D5724EB1A5D008403BA /* NetworkingComponents.swift in Sources */,
 				E93EF7F924EBC3CD001576E8 /* HttpService.m in Sources */,
 				E9A68D7A24EB3EF7008403BA /* main.swift in Sources */,
+				E93EF80524EBD891001576E8 /* Foundation+Utils.swift in Sources */,
 				E9A68D4A24EB199D008403BA /* NumbersAppDelegate.swift in Sources */,
 				E9A68D4E24EB19C0008403BA /* NumbersAppPresenter.swift in Sources */,
 				E9A68D7624EB3B6A008403BA /* Handlers.swift in Sources */,
@@ -375,6 +382,7 @@
 				E9A68D5224EB1A29008403BA /* NumbersAppFactory.swift in Sources */,
 				E9A68D4C24EB19AD008403BA /* NumbersAppInitializer.swift in Sources */,
 				E93EF7FB24EBCCD0001576E8 /* StorageComponents.swift in Sources */,
+				E93EF80724EBDD9C001576E8 /* NumberCell.swift in Sources */,
 				E93EF7F024EBBFAD001576E8 /* ContentInMemoryStorage.swift in Sources */,
 				E9A68D7424EB3B13008403BA /* NumbersAppWireframe.swift in Sources */,
 				E93EF7EA24EBB961001576E8 /* ExploreDetailsViewController.swift in Sources */,
