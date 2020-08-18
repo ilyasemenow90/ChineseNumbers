@@ -13,6 +13,8 @@ class ContentInMemoryStorage {
 }
 
 extension ContentInMemoryStorage: ContentStorage {
+    var isDataAvailable: Bool { !data.isEmpty }
+    
     func store(data: [Number]) {
         self.data = data
     }

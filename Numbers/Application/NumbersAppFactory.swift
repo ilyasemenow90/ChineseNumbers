@@ -28,7 +28,6 @@ class NumbersAppFactory {
 }
 
 extension NumbersAppFactory: ModuleFactory {
-
 }
 
 extension NumbersAppFactory: ApplicationFactory {

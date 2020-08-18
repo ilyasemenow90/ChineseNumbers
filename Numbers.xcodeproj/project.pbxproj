@@ -23,6 +23,8 @@
 		E93EF80724EBDD9C001576E8 /* NumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93EF80624EBDD9C001576E8 /* NumberCell.swift */; };
 		E93EF80B24EBF4FF001576E8 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93EF80A24EBF4FF001576E8 /* ColorPalette.swift */; };
 		E93EF80D24EBF6DE001576E8 /* UIImageView+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93EF80C24EBF6DE001576E8 /* UIImageView+Networking.swift */; };
+		E994DC8124EC0F24001EC82F /* NonBlockingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E994DC8024EC0F24001EC82F /* NonBlockingTimer.swift */; };
+		E994DC8524EC2054001EC82F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E994DC8724EC2054001EC82F /* Localizable.strings */; };
 		E9A68D2124EB1643008403BA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A68D2024EB1643008403BA /* SplashViewController.swift */; };
 		E9A68D2624EB1645008403BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A68D2524EB1645008403BA /* Assets.xcassets */; };
 		E9A68D3424EB1645008403BA /* NumbersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A68D3324EB1645008403BA /* NumbersTests.swift */; };
@@ -76,6 +78,8 @@
 		E93EF80624EBDD9C001576E8 /* NumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCell.swift; sourceTree = "<group>"; };
 		E93EF80A24EBF4FF001576E8 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		E93EF80C24EBF6DE001576E8 /* UIImageView+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Networking.swift"; sourceTree = "<group>"; };
+		E994DC8024EC0F24001EC82F /* NonBlockingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonBlockingTimer.swift; sourceTree = "<group>"; };
+		E994DC8624EC2054001EC82F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E9A68D1924EB1643008403BA /* Numbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Numbers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A68D2024EB1643008403BA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = ../SplashViewController.swift; sourceTree = "<group>"; };
 		E9A68D2524EB1645008403BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +150,14 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		E994DC8224EC0F2C001EC82F /* Timers */ = {
+			isa = PBXGroup;
+			children = (
+				E994DC8024EC0F24001EC82F /* NonBlockingTimer.swift */,
+			);
+			path = Timers;
+			sourceTree = "<group>";
+		};
 		E9A68D1024EB1643008403BA = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +186,7 @@
 				E9A68D6E24EB3531008403BA /* Utilities */,
 				E9A68D4124EB17CA008403BA /* External */,
 				E9A68D2524EB1645008403BA /* Assets.xcassets */,
+				E994DC8724EC2054001EC82F /* Localizable.strings */,
 				E9A68D2A24EB1645008403BA /* Info.plist */,
 			);
 			path = Numbers;
@@ -277,6 +290,7 @@
 				E9A68D7524EB3B6A008403BA /* Handlers.swift */,
 				E93EF80424EBD891001576E8 /* Foundation+Utils.swift */,
 				E93EF80C24EBF6DE001576E8 /* UIImageView+Networking.swift */,
+				E994DC8224EC0F2C001EC82F /* Timers */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -363,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E994DC8524EC2054001EC82F /* Localizable.strings in Resources */,
 				E93EF80124EBD3B5001576E8 /* ExploreMaster.storyboard in Resources */,
 				E9A68D4524EB1819008403BA /* LaunchScreen.storyboard in Resources */,
 				E9A68D2624EB1645008403BA /* Assets.xcassets in Resources */,
@@ -400,6 +415,7 @@
 				E93EF80524EBD891001576E8 /* Foundation+Utils.swift in Sources */,
 				E9A68D4A24EB199D008403BA /* NumbersAppDelegate.swift in Sources */,
 				E9A68D4E24EB19C0008403BA /* NumbersAppPresenter.swift in Sources */,
+				E994DC8124EC0F24001EC82F /* NonBlockingTimer.swift in Sources */,
 				E9A68D7624EB3B6A008403BA /* Handlers.swift in Sources */,
 				E9A68D6D24EB3070008403BA /* ReachabilityDefault.swift in Sources */,
 				E9A68D5224EB1A29008403BA /* NumbersAppFactory.swift in Sources */,
@@ -440,6 +456,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		E994DC8724EC2054001EC82F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E994DC8624EC2054001EC82F /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E9A68D4324EB1819008403BA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -571,6 +595,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GMB336XFC2;
 				INFOPLIST_FILE = Numbers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -592,6 +617,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GMB336XFC2;
 				INFOPLIST_FILE = Numbers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  Numbers
+
+  Created by Ilya on 8/18/20.
+  Copyright © 2020 Ilya Semenow. All rights reserved.
+*/
+
+"network.error.general.message" = "The network connection is lost.";

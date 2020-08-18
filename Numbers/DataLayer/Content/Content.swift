@@ -10,9 +10,12 @@ import Foundation
 
 protocol ContentDelegate: AnyObject {
     func contentDidUpdate()
+    func contentUpdateFailed()
 }
 
 protocol Content {
+    var isContentAvailable: Bool { get }
+    
     func updateData()
     func allData() -> [Number]
     
@@ -31,6 +34,8 @@ protocol NumbersParser {
 }
 
 protocol ContentStorage {
+    var isDataAvailable: Bool { get }
+    
     func store(data: [Number])
     func getAllData() -> [Number]
 }

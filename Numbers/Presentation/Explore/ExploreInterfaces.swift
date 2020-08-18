@@ -24,6 +24,7 @@ protocol ExploreDetailsEventsHandler {
 protocol ExploreMasterUserInterface: AnyObject {
     func update(with: [Number])
     func updateSelected(number: Number)
+    func showUpdateDataFailed()
 }
 
 protocol ExploreDetailsUserInterface: AnyObject {

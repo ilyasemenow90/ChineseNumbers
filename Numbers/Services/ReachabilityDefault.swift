@@ -10,7 +10,7 @@ import Foundation
 
 final class ReachabilityDefault {
     private struct Options {
-        static let hostName = "google.com"
+        static let hostName = "dev.taptic.com"
     }
     
     private let reachability: Reachability

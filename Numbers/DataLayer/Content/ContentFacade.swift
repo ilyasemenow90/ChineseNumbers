@@ -33,6 +33,8 @@ final class ContentFacade {
 }
 
 extension ContentFacade: Content {
+    var isContentAvailable: Bool { storage.isDataAvailable }
+    
     func updateData() {
         guard !updater.isUpdateActive else { return }
         
@@ -42,7 +44,7 @@ extension ContentFacade: Content {
                 self.storage.store(data: numbers)
                 self.subscribers |> { $0.contentDidUpdate() }
             case .failure:
-                break
+                self.subscribers |> { $0.contentUpdateFailed() }
             }
         }
     }
@@ -71,5 +73,4 @@ extension ContentFacade: ReachabilityServiceDelegate {
 }
 
 private extension ContentFacade {
-    
 }

@@ -69,6 +69,12 @@ extension ExplorePresenter: ContentDelegate {
         data = content.allData()
         updateMasterView()
     }
+    
+    func contentUpdateFailed() {
+        guard !content.isContentAvailable else { return }
+        
+        masterUserInterface?.showUpdateDataFailed()
+    }
 }
 
 private extension ExplorePresenter {

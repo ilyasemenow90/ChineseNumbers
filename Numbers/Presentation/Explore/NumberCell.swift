@@ -9,20 +9,40 @@
 import Foundation
 import UIKit
 
+enum NumberCellState {
+    case selected
+    case highlighted
+    case none
+}
+
 final class NumberCell: UICollectionViewCell {
     @IBOutlet private(set) var titleLabel: UILabel!
+    @IBOutlet private(set) var imageView: UIImageView!
     
-    override var isHighlighted: Bool {
-        didSet {
-            if self.isHighlighted {
-                backgroundColor = ColorPalette.mainBackgroundHighlighted
-            } else {
-                backgroundColor = ColorPalette.mainBackground
-            }
-        }
+    private static var hasSelectedState: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
     }
-    
+
     func update(title: String) {
         titleLabel.text = title
+    }
+    
+    func update(url: URL) {
+        imageView.loadImage(from: url)
+    }
+    
+    func update(state: NumberCellState) {
+        switch state {
+        case .highlighted:
+            backgroundColor = ColorPalette.mainBackgroundHighlighted
+        case .selected:
+            guard Self.hasSelectedState else {
+                backgroundColor = ColorPalette.mainBackground
+                return
+            }
+            backgroundColor =  ColorPalette.mainBackgroundSelected
+        case .none:
+            backgroundColor = ColorPalette.mainBackground
+        }
     }
 }

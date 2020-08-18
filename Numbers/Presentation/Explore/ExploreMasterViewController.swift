@@ -13,14 +13,17 @@ final class ExploreMasterViewController: UIViewController {
     var eventsHandler: ExploreMasterEventsHandler?
     
     @IBOutlet private(set) var collectionView: UICollectionView!
+    @IBOutlet private(set) var missingDataView: UIView!
+    @IBOutlet private(set) var missingDataLabel: UILabel!
     
     private var numbers: [Number] = []
     private var selectedNumber: Number?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         collectionView.delaysContentTouches = false
+        collectionView.allowsSelection = true
+        
         eventsHandler?.didLoadView()
     }
 }
@@ -28,13 +31,23 @@ final class ExploreMasterViewController: UIViewController {
 extension ExploreMasterViewController: ExploreMasterUserInterface {
     func update(with data: [Number]) {
         numbers = data
+        
         DispatchQueue.main.async {
             self.collectionView.reloadData()
+            if !self.numbers.isEmpty {
+                self.missingDataView.isHidden = true
+            }
         }
     }
     
     func updateSelected(number: Number) {
         selectedNumber = number
+    }
+    
+    func showUpdateDataFailed() {
+        DispatchQueue.main.async {
+            self.missingDataLabel.text = NSLocalizedString("network.error.general.message", comment: "")
+        }
     }
 }
 
@@ -43,6 +56,33 @@ extension ExploreMasterViewController: UICollectionViewDelegate {
         guard let number = numbers[safe: indexPath.item] else { return }
         
         eventsHandler?.didSelect(number: number)
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? NumberCell {
+            cell.update(state: .selected)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? NumberCell else { return }
+        
+        cell.update(state: .none)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? NumberCell else { return }
+            
+        cell.update(state: .highlighted)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? NumberCell else { return }
+        
+        guard let number = numbers[safe: indexPath.item], number == selectedNumber else {
+            cell.update(state: .none)
+            return
+        }
+        
+        cell.update(state: .selected)
     }
 }
 
@@ -69,6 +109,14 @@ extension ExploreMasterViewController: UICollectionViewDataSource {
         else { fatalError() }
         
         cell.update(title: number.name)
+        cell.update(url: number.image)
+        
+        if number == selectedNumber {
+            cell.update(state: .selected)
+        } else {
+            cell.update(state: .none)
+        }
+        
         
         return cell
     }
